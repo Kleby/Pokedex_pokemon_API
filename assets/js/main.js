@@ -1,7 +1,6 @@
 const pokemonsList = document.querySelector('#pokemons');
 const btnLoadMore = document.querySelector("#btnLoadMore");
 const pokedexList = document.querySelector("#pokedex");
-const viewDetail = document.querySelector("#pokeDetail");
 
 const limit = 10;
 let offset = 0;
@@ -52,8 +51,10 @@ btnLoadMore.addEventListener('click', () => {
 });
 
 // Altera uma classe para visibilidade
-onToggleView = async() =>{
+onToggleView = () =>{
   pokedexList.classList.toggle('disabled');
+  
+  //viewDetail esta vindo de poke-api
   viewDetail.classList.toggle('disabled');
 }
 
@@ -88,7 +89,7 @@ const viewPokeDetail = async (id) =>{
             <div class="abilities__content ${pokemon.type}-bg">
               <h3>Abilities</h3>
               <ul class="poke-body__abilities">
-              ${pokemon.abilities.map( ability => `<li class="ability ${pokemon.type}-color" > ${ability}</li>`).join('')}
+                ${pokemon.abilities.map( ability => `<li class="ability ${pokemon.type}-color" > ${ability}</li>`).join('')}
             </ul>
             </div>
           </div>

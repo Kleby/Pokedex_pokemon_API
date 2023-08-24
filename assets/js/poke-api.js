@@ -1,4 +1,6 @@
 const pokeApi = {};
+const viewDetail = document.querySelector("#pokeDetail");
+
 
 function pokeApiToClasspokemon( pokeDetail){
   const pokemon = new Pokemon();
@@ -41,8 +43,22 @@ pokeApi.getPokemons = async (offset = 0, limit = 20) => {
 }
 
 pokeApi.getPokemonDetail = async id => {
+    let isLoading = true
+    loadingPokemon(isLoading);
     return await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, configs)
-      .then( res => res.json())
-      .then( res => pokeApiToClasspokemon(res))
+    .then( res => res.json())
+    .then( res => {
+      isLoading = !isLoading;
+      loadingPokemon(isLoading);
+        return pokeApiToClasspokemon(res)
+      })
       .catch( e => console.error(`Erro ao fazer a requisição\n ${e}`));
+}
+
+function loadingPokemon(isLoading){
+  if(isLoading){
+    return viewDetail.innerHTML = `
+      <h1>Carregando... </h1>
+    `
+  }
 }
