@@ -51,11 +51,13 @@ btnLoadMore.addEventListener('click', () => {
   }
 });
 
+// Altera uma classe para visibilidade
 onToggleView = () =>{
   pokedexList.classList.toggle('disabled');
   viewDetail.classList.toggle('disabled');
 }
 
+//Adicionando a view do pokemon ao clicar
 const viewPokeDetail = async (id) =>{
 
   onToggleView();
