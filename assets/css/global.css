@@ -25,9 +25,7 @@ body{
  .disabled{
    display: none !important;
  }
- .enabled{
-   display: grid;
- }
+
 
 /* media Querys */
 

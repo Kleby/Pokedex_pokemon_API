@@ -155,3 +155,9 @@
     background-color: #a32c01;
     transition: 300ms;
 }
+
+@media screen and (max-width: 720px){
+    .poke-detail__content{
+       grid-template-columns:none;
+    }
+ }

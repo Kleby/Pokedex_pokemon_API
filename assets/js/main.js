@@ -52,7 +52,7 @@ btnLoadMore.addEventListener('click', () => {
 });
 
 // Altera uma classe para visibilidade
-onToggleView = () =>{
+onToggleView = async() =>{
   pokedexList.classList.toggle('disabled');
   viewDetail.classList.toggle('disabled');
 }
@@ -63,7 +63,7 @@ const viewPokeDetail = async (id) =>{
   onToggleView();
 
   pokemon = await pokeApi.getPokemonDetail(id);
-  viewDetail.innerHTML = `
+  return viewDetail.innerHTML = `
     <div class="poke-detail__container">
       <div class="poke-detail__infor" >
         <h2 class="infor__title ${pokemon.type}-color">${pokemon.name}</h2>
